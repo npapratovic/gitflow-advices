@@ -19,19 +19,21 @@ Additional notes:
 Every time production branch is deployed (whether it’s a full release or a quick hotfix), create a tag on that exact commit:
 
 Typical Flow
-# Checkout production branch after deploy
+
+- Checkout production branch after deploy
 
 ```
 git checkout production
 git pull origin production
 ```
 
-# Tag the commit currently deployed
+- Tag the commit currently deployed
 
 ``` 
 git tag -a v2025.10.31 -m "October release with bugfixes"
 git push origin v2025.10.31
 ```
+
 Benefits of tagging: 
 
 | Reason                           | Explanation                                                                                     |
