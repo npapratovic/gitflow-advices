@@ -8,12 +8,54 @@ Additional notes:
 - Hotfix are branched from production → merge back to both
 - Feature branches are branched from main
 - Its safe to do commits on main and on feature branches at the same time, just be carefull to rebase main on feature branches
+
 - Never push on production branch. **Rule of the thumb for commiting code:**
 1) push to hotfix branch if it is urgent and must go on live environment. Hotfix branch is made from production branch and merged back to all branches. 
 2) push to main branch if it is not urgent and will go to live when merged into production
 3) push to feature branch if it is related to feature and not yet ready for merging to main
+   
 - Add semantic versioning or release tags  Tag production branch on every deployment:  `git tag -a v2025.10.31 -m "October release"` This helps rollback, CI tracking, and client communication. Tags are like "snapshot label"
-- Feature flag strategy When long-running features are half-done, use flags so you can still deploy main frequently.
+
+Every time production branch is deployed (whether it’s a full release or a quick hotfix), create a tag on that exact commit:
+
+Typical Flow
+# Checkout production branch after deploy
+
+```
+git checkout production
+git pull origin production
+```
+
+# Tag the commit currently deployed
+
+``` 
+git tag -a v2025.10.31 -m "October release with bugfixes"
+git push origin v2025.10.31
+```
+Benefits of tagging: 
+
+| Reason                           | Explanation                                                                                     |
+| -------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Auditing & traceability**      | You know *exactly* what code version was deployed on any given day.                             |
+| **Rollback safety**              | You can `git checkout v2025.10.31` to restore your app to that precise version.                 |
+| **Deployment reproducibility**   | CI/CD can redeploy or rebuild that same release any time in the future.                         |
+| **Release changelog generation** | Tools like `git log v2025.10.24..v2025.10.31` automatically list what changed between releases. |
+| **Hotfix management**            | Each hotfix can be tagged incrementally (e.g., `v2025.10.31.1`, `v2025.10.31.2`).               |
+| **Confidence for team**          | Everyone knows what’s live — no guessing, no "what commit is in prod?" confusion.               |
+
+Let’s say v2025.10.31.1 (your latest hotfix) broke something.
+
+Rollback is instant and risk-free:
+```
+git checkout production
+git reset --hard v2025.10.31
+git push origin production --force
+```
+Now your production branch again points to the previous stable tag (v2025.10.31).
+
+You’ve just rolled back production to a known-good state with zero guesswork.
+
+- **Feature flag strategy** When long-running features are half-done, use flags so you can still deploy main frequently.
 - Document branch lifecycle Example: Create → Develop → PR → Merge → Delete after merge Keeps repository clean.
 - Use the PRs: 
 
