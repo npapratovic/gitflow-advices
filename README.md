@@ -1,7 +1,10 @@
 # gitflow-advices
 
 Mermaid live code example: 
- 
+
+https://mermaid.live/edit#pako:eNqtVstymzAU_RWNusWeIMA27DrtTFdddLrrsFHQNWiCdB0hpUk9_vcKYyd-YCBpGRYgnfs451zZbGmBAmhGS2m_Gb6pck38VaBS0n7s-d5wXVQkpyy-m62B25nmCnJ6QFZQPKCzN_dvVTjGKS51t6TAlDCch0iReYSBRweNBUFAV7wABdqS8Aa0wfrJI398JrJpfNgb8IRZOMIs_E_Mwo8wY1OZeSA5o7YxKFxhJeoLxhXatXye9WvWbZKQrNHsUwyh2DXqKMBl9U6G19LDap3DTqxiI1axd1g15fm6wXHHol7FGlRA7G_gD83UzjstLksPdDnmeP8sPTpZPLRufmJJ8j4f2TSZuBBeontnrc_S10JRce2z1lhK7XdqNOcaXJTr4z7Z_WNJ1FZqB0TAE9S4uSL-xuVk_qKRI9zuOgP7Y6FQ8LoXxTXaCg6Ik9GZ1kM80kOndqel70P1gtxGcAt9qKFfsKHj1z8oJxMxlDi6Nf23CP9D1V4rzk3ID9Bc04D6lD5Y-P_VbbuaUx_QdtKGC1hzV-9jdh7KncWfL7qgmTUOAmrQlRXN1rxu_Fun-VfJS8PV6-qG61-I6hjiX2m2pc80m6VpMk9YuEwW4SpepkkS0BeasSies2jl72Wapqso2QX0zz5BOF-lIUvYIo2Wd-EyjtOAgpAWzffuu2D_eRDQ0rRsDuUNaAHmCzptaRYtFmz3F0niqV8
+
+``` 
 gitGraph
     commit
     commit
@@ -78,7 +81,8 @@ gitGraph
     merge main
     checkout main
     commit id: "another enhacement"
+```
 
+    <img width="2360" height="2348" alt="mermaid-diagram-2025-10-31-150239" src="https://github.com/user-attachments/assets/49ab78e4-746a-4445-93d0-745079d6ecf6" />
 
-    
 
