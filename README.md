@@ -11,6 +11,8 @@ Additional notes:
 
 I have created gitGraph in mermaid just to show how branching strategy should work: 
 
+https://mermaid.ink/svg/pako:eNqtVstymzAU_RWNusUZS-CYYddpZ7rqotNdh42CrkFjpOsIKU3q8b9XGDvxAwNJywqkcx_nnCtgSwuUQDNaKvfNik2VGxKuArVW7mP3D1aYoiI55cl8tgLhZkZoyOkBWUGxRu9u7t-qcIzTQpluSYMtYTgPUTILCAuPHhoHkoCpRAEajCPsBrTB-ikgf3wmqmlC2BvwhBkbYcb-EzP2EWZ8KrMAJGfUNhalL5xCc8G4QrdSz7N-zbpNwsgK7T7FEIpfo44CXFbvZHgtPazWOezEKj5iFX-HVVPurxscdyzuVaxBDcT9BrFupnbeaXFZeqDLMcf7Z-nRq2LduvmJLxbv85FPk0lIGSR68M6FLH0tFJUwIWuNpTJhp0Z7rsFFuT7uk90_lkTjlPFAJDxBjZsr4m9cTuYvHjnC7a63sD8WGqWoe1HCoKvggDgZnWk9JCM9dGp3WoY-dC_Ib6Rw0IcaeoMNHb_-QTmZiKHE8a3pv0X4H6r2WnFuQn6A5oZGNKQMwTJ8V7ftak5DQNtJGy5hJXy9j9kFqPAOf76YgmbOeoioRV9WNFuJuglPneZflSit0K-rG2F-IepjSHik2ZY-02zGFpzdJeGLuEzSJLnnPKIvNGNpesdZzOP5fMk4S5e7iP7ZJ-B38ZwtGLuP03kaL0NkREEqh_Z791-w_z2IaGlbNofyFowE-wW9cTRLWLLc_QUsb6kL
+
 - For new feature request, start with creating new branch from main, then do commits on that branch. Deploy that branch to staging env. after QA, merge branch to main so that it can be checked on mirror environment. Repeat endlessly. 
 - If client requests enhacements, commit them only on main branch and merge to production if needed. If there is need for hotfix, branch out production branch, make commits, and merge hotfix branch to main and to production branch. **Enhacements are something that needs to be added to app but not deployed instantly, hotfixes need to be deployed instantly!**
 - Whever hotfix is merged into main or enhacements is added to main, checkout all feature branches and rebase main into them to avoid future merge conflicts 
