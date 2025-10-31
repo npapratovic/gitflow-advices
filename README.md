@@ -2,7 +2,7 @@
 
 Mermaid live code example: 
  
-`gitGraph
+gitGraph
     commit
     commit
     commit
@@ -78,7 +78,7 @@ Mermaid live code example:
     merge main
     checkout main
     commit id: "another enhacement"
-`
+
 
     
 
