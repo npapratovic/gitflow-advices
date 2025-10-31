@@ -8,6 +8,10 @@ Additional notes:
 - Hotfix are branched from production → merge back to both
 - Feature branches are branched from main
 - Its safe to do commits on main and on feature branches at the same time, just be carefull to rebase main on feature branches
+- Never push on production branch. **Rule of the thumb for commiting code:**
+1) push to hotfix branch if it is urgent and must go on live environment. Hotfix branch is made from production branch and merged back to all branches. 
+2) push to main branch if it is not urgent and will go to live when merged into production
+3) push to feature branch if it is related to feature and not yet ready for merging to main 
 
 I have created gitGraph in mermaid just to show how branching strategy should work: 
 
