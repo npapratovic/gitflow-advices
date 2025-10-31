@@ -11,7 +11,22 @@ Additional notes:
 - Never push on production branch. **Rule of the thumb for commiting code:**
 1) push to hotfix branch if it is urgent and must go on live environment. Hotfix branch is made from production branch and merged back to all branches. 
 2) push to main branch if it is not urgent and will go to live when merged into production
-3) push to feature branch if it is related to feature and not yet ready for merging to main 
+3) push to feature branch if it is related to feature and not yet ready for merging to main
+- Add semantic versioning or release tags  Tag production branch on every deployment:  `git tag -a v2025.10.31 -m "October release"` This helps rollback, CI tracking, and client communication. Tags are like "snapshot label"
+- Feature flag strategy When long-running features are half-done, use flags so you can still deploy main frequently.
+- Document branch lifecycle Example: Create → Develop → PR → Merge → Delete after merge Keeps repository clean.
+- Use the PRs: 
+
+| Benefit                             | Explanation                                                                                                                                   |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Code Review & Knowledge Sharing** | PRs ensure every line of code gets seen by another developer before merging. Prevents bugs, promotes consistent patterns, and shares context. |
+| **Automated Checks**                | CI/CD can automatically test, lint, and validate before merging — enforcing code quality.                                                     |
+| **Clean Commit History**            | PR merges can be squashed into a single logical commit (`feat: add disposal location import`) keeping the history readable.                   |
+| **Change Traceability**             | GitHub links each PR to an issue. You can always see *why* something was added and who approved it.                                           |
+| **Protected Branches**              | You can lock `main` and `production` so they only accept merges through reviewed PRs, preventing accidental direct pushes.                    |
+| **Release Audit Trail**             | Each PR acts as a “changelog entry” — makes release notes generation automatic.                                                               |
+
+_A PR is not just a merge tool — it’s a controlled gateway for code quality, testing, and traceability._
 
 I have created gitGraph in mermaid just to show how branching strategy should work: 
 
