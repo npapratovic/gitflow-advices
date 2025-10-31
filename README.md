@@ -1,5 +1,20 @@
 # gitflow-advices
 
+Additional notes: 
+
+- Use rebases on feature branches to keep a clean, readable timeline. During development run frequent `git rebase main` 
+- Use merges between shared branches (main to production, hotfix to main) to preserve history integrity.
+- Always open PRs when merging commits from feature branch to main or from main to production for controlled review, testing, and audit trail.
+- Hotfix are branched from production → merge back to both
+- Feature branches are branched from main
+- Its safe to do commits on main and on feature branches at the same time, just be carefull to rebase main on feature branches
+
+I have created gitGraph in mermaid just to show how branching strategy should work: 
+
+- For new feature request, start with creating new branch from main, then do commits on that branch. Deploy that branch to staging env. after QA, merge branch to main so that it can be checked on mirror environment. Repeat endlessly. 
+- If client requests enhacements, commit them only on main branch and merge to production if needed. If there is need for hotfix, branch out production branch, make commits, and merge hotfix branch to main and to production branch. **Enhacements are something that needs to be added to app but not deployed instantly, hotfixes need to be deployed instantly!**
+- Whever hotfix is merged into main or enhacements is added to main, checkout all feature branches and rebase main into them to avoid future merge conflicts 
+
 Mermaid live code example: 
 
 https://mermaid.live/edit#pako:eNqtVstymzAU_RWNusWeIMA27DrtTFdddLrrsFHQNWiCdB0hpUk9_vcKYyd-YCBpGRYgnfs451zZbGmBAmhGS2m_Gb6pck38VaBS0n7s-d5wXVQkpyy-m62B25nmCnJ6QFZQPKCzN_dvVTjGKS51t6TAlDCch0iReYSBRweNBUFAV7wABdqS8Aa0wfrJI398JrJpfNgb8IRZOMIs_E_Mwo8wY1OZeSA5o7YxKFxhJeoLxhXatXye9WvWbZKQrNHsUwyh2DXqKMBl9U6G19LDap3DTqxiI1axd1g15fm6wXHHol7FGlRA7G_gD83UzjstLksPdDnmeP8sPTpZPLRufmJJ8j4f2TSZuBBeontnrc_S10JRce2z1lhK7XdqNOcaXJTr4z7Z_WNJ1FZqB0TAE9S4uSL-xuVk_qKRI9zuOgP7Y6FQ8LoXxTXaCg6Ik9GZ1kM80kOndqel70P1gtxGcAt9qKFfsKHj1z8oJxMxlDi6Nf23CP9D1V4rzk3ID9Bc04D6lD5Y-P_VbbuaUx_QdtKGC1hzV-9jdh7KncWfL7qgmTUOAmrQlRXN1rxu_Fun-VfJS8PV6-qG61-I6hjiX2m2pc80m6VpMk9YuEwW4SpepkkS0BeasSies2jl72Wapqso2QX0zz5BOF-lIUvYIo2Wd-EyjtOAgpAWzffuu2D_eRDQ0rRsDuUNaAHmCzptaRYtFmz3F0niqV8
