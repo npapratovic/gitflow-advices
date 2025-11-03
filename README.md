@@ -2,11 +2,11 @@
 
 Additional notes: 
 
-- Use rebases on feature branches to keep a clean, readable timeline. During development run frequent `git rebase main` 
+- Regularly merging `main` into your feature branches — is safe, traceable, and minimizes surprises.. During development run frequent `git merge main` 
 - Use merges between shared branches (main to production, hotfix to main) to preserve history integrity.
 - Always open PRs when merging commits from feature branch to main or from main to production for controlled review, testing, and audit trail.
-- Hotfix are branched from production → merge back to both
-- Feature branches are branched from main
+- Hotfix are branched from production → merge back to both `main` and `production` branch
+- Feature branches are branched from `main`
 - **Feature flag strategy** When long-running features are half-done, use flags so you can still deploy main frequently.
 - Stick to the branch lifecycle: `Create → Develop → PR → Merge → Delete after merge` this keeps repository clean.
 - For new feature request, start with creating new branch from main, then do commits on that branch. Deploy that branch to staging env. after QA, merge branch to main so that it can be checked on mirror environment. Repeat endlessly. 
