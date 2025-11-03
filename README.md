@@ -11,8 +11,8 @@ Additional notes:
 - Stick to the branch lifecycle: `Create → Develop → PR → Merge → Delete after merge` this keeps repository clean.
 - For new feature request, start with creating new branch from main, then do commits on that branch. Deploy that branch to staging env. after QA, merge branch to main so that it can be checked on mirror environment. Repeat endlessly. 
 - If client requests enhacements, commit them only on main branch and merge to production if needed. If there is need for hotfix, branch out production branch, make commits, and merge hotfix branch to main and to production branch. **Enhacements are something that needs to be added to app but not deployed instantly, hotfixes need to be deployed instantly!** Lets say client requested enhacements, you pushed code to main, and he changed his mind and want this on live env - just create hotfix from production branch, add the changes to that branch, merge the branch into produciton and main. Main won't be affected, and production can be deployed. 
-- Whever hotfix is merged into main or enhacements is added to main, checkout all feature branches and rebase main into them to avoid future merge conflicts 
-- Its safe to do commits on main and on feature branches at the same time, just be carefull to rebase main on feature branches
+- Whever hotfix is merged into main or enhacements is added to main, checkout all feature branches and merge main into them to avoid future merge conflicts 
+- Its safe to do commits on main and on feature branches at the same time, just be carefull to merge main on feature branches
 - Never push on production branch directly. 
 
 ## Rule of the thumb for commiting code:
